@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test default scheme using any available iPhone simulator
+    name: Run test
     runs-on: macos-latest
 
     strategy:
@@ -21,7 +21,7 @@ jobs:
 
       - name: Select xcode version
         run: |
-          sudo xcode-select -s $XCODE_VERSION
+          sudo xcode-select -s /Applications/$XCODE_VERSION
         env:
           XCODE_VERSION: ${{ matrix.xcode }}
 
