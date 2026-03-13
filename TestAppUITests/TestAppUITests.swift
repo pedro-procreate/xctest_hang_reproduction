@@ -16,13 +16,10 @@ final class TestAppUITests: XCTestCase {
 
     @MainActor
     func testExample() throws {
-        // UI tests must launch the application that they test.
         let app = XCUIApplication()
         self.app = app
         app.launch()
 
         XCTFail("WHAT")
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 }
