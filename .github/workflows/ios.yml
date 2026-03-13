@@ -11,9 +11,19 @@ jobs:
     name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-latest
 
+    strategy:
+      matrix:
+        xcode: ["Xcode_16.4.app", "Xcode_26.3.app", "Xcode_26.0.app", "Xcode_26.1.1.app", "Xcode_26.2.app"]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Select xcode version
+        run: |
+          sudo xcode-select -s $XCODE_VERSION
+        env:
+          XCODE_VERSION: ${{ matrix.xcode }}
 
       - name: Log xcodebuild version
         run: |
