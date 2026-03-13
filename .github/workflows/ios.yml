@@ -9,12 +9,13 @@ on:
 jobs:
   build:
     name: Run test
-    runs-on: macos-latest
+    runs-on: ${{ matrix.macos }}
 
     strategy:
       fail-fast: false
       matrix:
-        xcode: ["Xcode_16.4.app", "Xcode_26.3.app", "Xcode_26.0.app", "Xcode_26.1.1.app", "Xcode_26.2.app"]
+        macos: [macos-26, macos-15]
+        xcode: ["Xcode_16.4.app", "Xcode_26.3.app"]
 
     steps:
       - name: Checkout
